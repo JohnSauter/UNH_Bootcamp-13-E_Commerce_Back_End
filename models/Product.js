@@ -10,6 +10,33 @@ class Product extends Model {}
 Product.init(
   {
     // define columns
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
+    product_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    price: {
+      type: DataTypes.DECIMAL(65,2),  /* JBS we need to preserve cents in prices */
+      allowNull: false,
+      validate: {
+        isDecimal: true
+      },
+      stock: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 10,
+      },
+      category_id: {
+        type: DataTypes.INTEGER, /* JBS references category.id */
+      }
+
+
+    }
   },
   {
     sequelize,
