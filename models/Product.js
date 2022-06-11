@@ -4,7 +4,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class Product extends Model {}
+class Product extends Model { }
 
 // set up fields and rules for Product model
 Product.init(
@@ -21,21 +21,16 @@ Product.init(
       allowNull: false,
     },
     price: {
-      type: DataTypes.DECIMAL(65,2),  /* JBS we need to preserve cents in prices */
+      type: DataTypes.DECIMAL(65, 2),  /* JBS we need to preserve cents in prices */
       allowNull: false,
-      validate: {
-        isDecimal: true
-      },
-      stock: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 10,
-      },
-      category_id: {
-        type: DataTypes.INTEGER, /* JBS references category.id */
-      }
-
-
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+    },
+    category_id: {
+      type: DataTypes.INTEGER, /* JBS references category.id */
     }
   },
   {
