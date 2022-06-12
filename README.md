@@ -24,7 +24,7 @@ node index.js
 
 ## Walkthrough Video
 
-TBD
+Download from https://github.com/JohnSauter/UNH_Bootcamp-13-E_Commerce_Back_End/blob/main/video/Walkthrough.mp4
 
 ## License
 
